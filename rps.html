@@ -8,7 +8,75 @@
 </head>
 <body>
     <script>
+        //function that randomly returns rock, paper, or scissors 
+        function getComputerChoice() {
+            let randomNumber = Math.floor(Math.random() * 100);
+            console.log(randomNumber);
+            if (randomNumber <= 33) {
+                return 'rock';
+            }
+            else if (randomNumber >=66) {
+                return 'paper';
+            }
+            else {
+                return 'scissors';
+            }
+        }
+        let computerSelection = getComputerChoice();
+        console.log(computerSelection);
+// function that plays a single round of the game
+        function playGame(computerSelection,playerSelection){
+            let player = playerSelection.toLowerCase();
+            let gameResult;
+            if(player == 'rock') {
+                switch(computerSelection) {
+                    case 'rock':
+                        gameResult = 'it\s a draw';
+                        break;
+                    case 'paper':
+                        gameResult = `You lose! ${computerSelection} beats ${player}`;
+                        break;
+                    case 'scissors':
+                        gameResult = `You win! ${player} beats ${computerSelection}`;
+                        break;
+                }
+            }
+            else if(player == 'paper') {
+                switch(computerSelection) {
+                    case 'paper':
+                        gameResult = 'it\s a draw';
+                        break;
+                    case 'scissors':
+                        gameResult = `You lose! ${computerSelection} beats ${player}`;
+                        break;
+                    case 'rock':
+                        gameResult = `You win! ${player} beats ${computerSelection}`;
+                        break;
+                }
+
+        }
+        else if(player == 'scissors') {
+                switch(computerSelection) {
+                    case 'scissors':
+                        gameResult = 'it\s a draw';
+                        break;
+                    case 'rock':
+                        gameResult = `You lose! ${computerSelection} beats ${player}`;
+                        break;
+                    case 'paper':
+                        gameResult = `You win! ${player} beats ${computerSelection}`;
+                        break;
+                }
+
+        }
+        console.log(gameResult)
+    }
+       
+        let playerSelection = prompt('Make your selection', 'Rock, Paper, Scissors');
+        console.log(`player chose ${playerSelection}`);
         
+        playGame(computerSelection,playerSelection);
+
 
 
     </script>
